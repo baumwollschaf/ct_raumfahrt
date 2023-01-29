@@ -1,0 +1,419 @@
+object ctrfMainForm: TctrfMainForm
+  Left = 0
+  Top = 0
+  Caption = 'Unterschiede in Bildern herausbekommen'
+  ClientHeight = 624
+  ClientWidth = 946
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = ForamClose
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Align = Top
+    Margins.Left = 8.000000000000000000
+    Margins.Top = 8.000000000000000000
+    Margins.Right = 8.000000000000000000
+    Position.X = 289.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 649.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Label1: TLabel
+      Align = Left
+      Size.Width = 120.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'URL Bild 1'
+      TabOrder = 0
+    end
+    object edPic1: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 1
+      Text = 'https://ftp.heise.de/ct/listings/2023/04/bild_1.png'
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 441.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Button1: TButton
+      Align = Right
+      Margins.Top = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 569.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Laden'
+      OnClick = Button1Click
+    end
+  end
+  object Layout2: TLayout
+    Align = Top
+    Margins.Left = 8.000000000000000000
+    Margins.Top = 8.000000000000000000
+    Margins.Right = 8.000000000000000000
+    Position.X = 289.000000000000000000
+    Position.Y = 66.000000000000000000
+    Size.Width = 649.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Label2: TLabel
+      Align = Left
+      Size.Width = 120.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'URL Bild 2'
+      TabOrder = 0
+    end
+    object edPic2: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 1
+      Text = 'https://ftp.heise.de/ct/listings/2023/04/bild_2.png'
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 441.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Button2: TButton
+      Tag = 1
+      Align = Right
+      Margins.Top = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 569.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Laden'
+      OnClick = Button1Click
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Margins.Left = 8.000000000000000000
+    Margins.Top = 8.000000000000000000
+    Margins.Right = 8.000000000000000000
+    Margins.Bottom = 8.000000000000000000
+    Size.Width = 649.000000000000000000
+    Size.Height = 492.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 1
+    TabOrder = 2
+    TabPosition = PlatformDefault
+    OnChange = TabControl1Change
+    Sizes = (
+      649s
+      466s
+      649s
+      466s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 51.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Bilder'
+      object GridPanelLayout1: TGridPanelLayout
+        Align = Client
+        Size.Width = 649.000000000000000000
+        Size.Height = 466.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        ColumnCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = Layout3
+            Row = 0
+          end
+          item
+            Column = 0
+            Control = Layout4
+            Row = 1
+          end>
+        RowCollection = <
+          item
+            Value = 50.000000000000000000
+          end
+          item
+            Value = 50.000000000000000000
+          end>
+        object Layout3: TLayout
+          Align = Client
+          Size.Width = 649.000000000000000000
+          Size.Height = 233.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Image1: TImage
+            MultiResBitmap = <
+              item
+              end>
+            Align = Client
+            Size.Width = 649.000000000000000000
+            Size.Height = 216.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object Label3: TLabel
+            Align = Top
+            Size.Width = 649.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Bild 1'
+            TabOrder = 1
+          end
+        end
+        object Layout4: TLayout
+          Align = Client
+          Size.Width = 649.000000000000000000
+          Size.Height = 233.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Image2: TImage
+            MultiResBitmap = <
+              item
+              end>
+            Align = Client
+            Size.Width = 649.000000000000000000
+            Size.Height = 216.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object Label4: TLabel
+            Align = Top
+            Size.Width = 649.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Bild 2'
+            TabOrder = 1
+          end
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 96.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Merged Bilder'
+      object Panel1: TPanel
+        Align = Right
+        Position.X = 489.000000000000000000
+        Size.Width = 160.000000000000000000
+        Size.Height = 466.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object GridPanelLayout2: TGridPanelLayout
+          Align = Client
+          Size.Width = 160.000000000000000000
+          Size.Height = 417.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ColumnCollection = <
+            item
+              Value = 50.000000000000000000
+            end
+            item
+              Value = 50.000000000000000000
+            end>
+          ControlCollection = <
+            item
+              Column = 0
+              Control = Layout5
+              Row = 0
+            end
+            item
+              Column = 1
+              Control = Layout6
+              Row = 0
+            end>
+          RowCollection = <
+            item
+              Value = 100.000000000000000000
+            end>
+          object Layout5: TLayout
+            Align = Client
+            Size.Width = 80.000000000000000000
+            Size.Height = 417.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Label5: TLabel
+              Align = Top
+              Size.Width = 80.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Flackern'
+              TabOrder = 0
+            end
+            object tbFlicker: TTrackBar
+              Align = Client
+              CanParentFocus = True
+              Min = 10.000000000000000000
+              Orientation = Vertical
+              Size.Width = 19.000000000000000000
+              Size.Height = 400.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Value = 50.000000000000000000
+              OnChange = tbFlickerChange
+            end
+          end
+          object Layout6: TLayout
+            Align = Client
+            Size.Width = 80.000000000000000000
+            Size.Height = 417.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label6: TLabel
+              Align = Top
+              Size.Width = 80.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Transparenz'
+              TabOrder = 0
+            end
+            object tbTransparency: TTrackBar
+              Align = Client
+              CanParentFocus = True
+              Max = 1.000000000000000000
+              Min = 0.100000001490116100
+              Orientation = Vertical
+              Size.Width = 19.000000000000000000
+              Size.Height = 400.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Value = 0.600000023841857900
+              OnChange = tbTransparencyChange
+            end
+          end
+        end
+        object Panel2: TPanel
+          Align = Top
+          Size.Width = 160.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Button3: TButton
+            Position.X = 8.000000000000000000
+            Position.Y = 16.000000000000000000
+            Size.Width = 144.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Zur'#252'cksetzen'
+            OnClick = Button3Click
+          end
+        end
+      end
+      object Layout7: TLayout
+        Align = Client
+        Size.Width = 489.000000000000000000
+        Size.Height = 466.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        object Image3: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Align = Contents
+          Size.Width = 489.000000000000000000
+          Size.Height = 466.000000000000000000
+          Size.PlatformDefault = False
+          OnMouseUp = Image3MouseUp
+        end
+        object Image4: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Align = Contents
+          HitTest = False
+          Opacity = 0.600000023841857900
+          Size.Width = 489.000000000000000000
+          Size.Height = 466.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+    end
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Lines.Strings = (
+      'Hilfe'
+      '----------'
+      ''
+      '1. Bild 1 laden. Kurz warten.'
+      ''
+      '2. Bild 2 laden. Kurz warten.'
+      ''
+      
+        '3. auf Reiter "Merged Bilder" gehen und mit den Regelern "Flacke' +
+        'rn" und Transparenz spielen.'
+      '  Dadurch werden die Unterschide sichtbar.'
+      ''
+      
+        '4. durch Klicken ins Bild wird ein kleines Textelement mit der Z' +
+        'ahl erzeugt.'
+      ''
+      'Optional 5. "Zur'#252'cksetzen" l'#246'scht die Text-Labels mit den Zahlen')
+    ReadOnly = True
+    TextSettings.WordWrap = True
+    Align = MostLeft
+    CanFocus = False
+    Margins.Left = 8.000000000000000000
+    Margins.Top = 8.000000000000000000
+    Margins.Bottom = 8.000000000000000000
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 273.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Viewport.Width = 269.000000000000000000
+    Viewport.Height = 604.000000000000000000
+  end
+  object Client: TNetHTTPClient
+    Asynchronous = True
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 424
+    Top = 120
+  end
+  object Request: TNetHTTPRequest
+    Asynchronous = True
+    Client = Client
+    OnRequestCompleted = RequestRequestCompleted
+    Left = 512
+    Top = 92
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 432
+    Top = 80
+  end
+end
