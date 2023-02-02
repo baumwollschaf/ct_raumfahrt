@@ -131,6 +131,8 @@ object ctrfMainForm: TctrfMainForm
       StyleLookup = ''
       TabOrder = 0
       Text = 'Bilder'
+      ExplicitSize.cx = 51.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
       object GridPanelLayout1: TGridPanelLayout
         Align = Client
         Size.Width = 649.000000000000000000
@@ -220,6 +222,8 @@ object ctrfMainForm: TctrfMainForm
       StyleLookup = ''
       TabOrder = 0
       Text = 'Merged Bilder'
+      ExplicitSize.cx = 96.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
       object Panel1: TPanel
         Align = Right
         Position.X = 489.000000000000000000
@@ -306,7 +310,7 @@ object ctrfMainForm: TctrfMainForm
               Size.Height = 400.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              Value = 0.600000023841857900
+              Value = 0.899999976158142100
               OnChange = tbTransparencyChange
             end
           end
@@ -343,18 +347,26 @@ object ctrfMainForm: TctrfMainForm
           Size.Width = 489.000000000000000000
           Size.Height = 466.000000000000000000
           Size.PlatformDefault = False
-          OnMouseUp = Image3MouseUp
         end
         object Image4: TImage
           MultiResBitmap = <
             item
             end>
           Align = Contents
-          HitTest = False
           Opacity = 0.600000023841857900
           Size.Width = 489.000000000000000000
           Size.Height = 466.000000000000000000
           Size.PlatformDefault = False
+        end
+        object ImageNumbers: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Align = Contents
+          Size.Width = 489.000000000000000000
+          Size.Height = 466.000000000000000000
+          Size.PlatformDefault = False
+          OnMouseUp = Image3MouseUp
         end
       end
     end
@@ -396,6 +408,13 @@ object ctrfMainForm: TctrfMainForm
     Viewport.Width = 269.000000000000000000
     Viewport.Height = 604.000000000000000000
   end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 432
+    Top = 80
+  end
   object Client: TNetHTTPClient
     Asynchronous = True
     UserAgent = 'Embarcadero URI Client/1.0'
@@ -408,12 +427,5 @@ object ctrfMainForm: TctrfMainForm
     OnRequestCompleted = RequestRequestCompleted
     Left = 512
     Top = 92
-  end
-  object Timer1: TTimer
-    Enabled = False
-    Interval = 500
-    OnTimer = Timer1Timer
-    Left = 432
-    Top = 80
   end
 end

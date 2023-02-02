@@ -60,6 +60,7 @@ type
     Panel2: TPanel;
     Button3: TButton;
     Memo1: TMemo;
+    ImageNumbers: TImage;
     procedure Button1Click(Sender: TObject);
     procedure ForamClose(Sender: TObject; var Action: TCloseAction);
     procedure RequestRequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
@@ -110,15 +111,15 @@ end;
 procedure TctrfMainForm.Button3Click(Sender: TObject);
 begin
   FCount := 0;
-  Image3.DeleteChildren;
+  ImageNumbers.DeleteChildren;
 end;
 
 function TctrfMainForm.CreateLabel(ALeft, ATop: Single): TLabel;
 begin
-  Result := TLabel.Create(Image3);
-  Result.Parent := Image3;
+  Result := TLabel.Create(ImageNumbers);
+  Result.Parent := ImageNumbers;
   Result.Text := FCount.ToString;
-  Result.Font.Size := 10;
+  Result.Font.Size := 12;
   Result.StyledSettings := [TStyledSetting.Family, TStyledSetting.Style];
   Result.FontColor := TAlphaColors.Lime;
   Result.Position.X := ALeft + 10;
@@ -165,6 +166,7 @@ begin
     Image3.Bitmap.Assign(Image1.Bitmap);
     Image4.Bitmap.Assign(Image2.Bitmap);
     Image4.BringToFront;
+    ImageNumbers.BringToFront; //most top
     tbFlickerChange(nil);
     tbTransparencyChange(nil);
     Timer1.Enabled := True;
