@@ -21,7 +21,12 @@ uses
   FMX.TabControl,
   System.Net.URLClient,
   System.Net.HttpClient,
-  System.Net.HttpClientComponent, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
+  System.Net.HttpClientComponent,
+  FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo,
+  FMX.Effects,
+  FMX.ExtCtrls;
 
 type
   TctrfMainForm = class(TForm)
@@ -30,7 +35,6 @@ type
     edPic1: TEdit;
     Button1: TButton;
     Layout2: TLayout;
-    Label2: TLabel;
     edPic2: TEdit;
     Button2: TButton;
     TabControl1: TTabControl;
@@ -61,6 +65,8 @@ type
     Button3: TButton;
     Memo1: TMemo;
     ImageNumbers: TImage;
+    Label2: TLabel;
+    ShadowEffect1: TShadowEffect;
     procedure Button1Click(Sender: TObject);
     procedure ForamClose(Sender: TObject; var Action: TCloseAction);
     procedure RequestRequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
@@ -71,6 +77,10 @@ type
     procedure Image3MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
     procedure FormCreate(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Ü(Sender: TObject);
+    procedure DropTarget1Dropped(Sender: TObject; const Data: TDragObject; const Point: TPointF);
+    procedure DropTarget2DragOver(Sender: TObject; const Data: TDragObject; const Point: TPointF;
+      var Operation: TDragOperation);
   private
     FPic1: Boolean;
     FOpacity: Single;
@@ -117,13 +127,40 @@ end;
 function TctrfMainForm.CreateLabel(ALeft, ATop: Single): TLabel;
 begin
   Result := TLabel.Create(ImageNumbers);
+  var
+    se: TShadowEffect := TShadowEffect.Create(Result);
+  se.Parent := Result;
+  Result.Anchors := [];
   Result.Parent := ImageNumbers;
   Result.Text := FCount.ToString;
-  Result.Font.Size := 12;
+  Result.Font.Size := 14;
   Result.StyledSettings := [TStyledSetting.Family, TStyledSetting.Style];
   Result.FontColor := TAlphaColors.Lime;
   Result.Position.X := ALeft + 10;
   Result.Position.Y := ATop + 0;
+end;
+
+procedure TctrfMainForm.DropTarget1Dropped(Sender: TObject; const Data: TDragObject; const Point: TPointF);
+begin
+  case TImage(Sender).Tag of
+    1:
+      begin
+        Image1.Bitmap.LoadFromFile(Data.Files[0]);
+      end;
+    2:
+      begin
+        Image2.Bitmap.LoadFromFile(Data.Files[0]);
+      end;
+  end;
+end;
+
+procedure TctrfMainForm.DropTarget2DragOver(Sender: TObject; const Data: TDragObject; const Point: TPointF;
+  var Operation: TDragOperation);
+begin
+  Operation := TDragOperation.None;
+  if (Length(Data.Files) = 1) and ((ExtractFileExt(Data.Files[0]).ToLower = '.png') or
+    (ExtractFileExt(Data.Files[0]).ToLower = '.jpg') or (ExtractFileExt(Data.Files[0]).ToLower = '.bmp')) then
+    Operation := TDragOperation.Move;
 end;
 
 procedure TctrfMainForm.ForamClose(Sender: TObject; var Action: TCloseAction);
@@ -134,12 +171,18 @@ end;
 procedure TctrfMainForm.FormCreate(Sender: TObject);
 begin
   TabControl1.ActiveTab := TabItem1;
+  FCount := 0;
 end;
 
 procedure TctrfMainForm.Image3MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
 begin
   inc(FCount);
   CreateLabel(X, Y);
+end;
+
+procedure TctrfMainForm.Ü(Sender: TObject);
+begin
+  Button3Click(nil);
 end;
 
 procedure TctrfMainForm.RequestRequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
@@ -166,11 +209,10 @@ begin
     Image3.Bitmap.Assign(Image1.Bitmap);
     Image4.Bitmap.Assign(Image2.Bitmap);
     Image4.BringToFront;
-    ImageNumbers.BringToFront; //most top
+    ImageNumbers.BringToFront; // most top
     tbFlickerChange(nil);
     tbTransparencyChange(nil);
     Timer1.Enabled := True;
-    FCount := 0;
   end;
 
 end;
